@@ -20,13 +20,9 @@ defmodule BloggerWeb.PostController do
     end
   end
 
-  def show(conn, %Post{id: id}) do
-    render_post(conn, id)
-  end
+  def show(conn, %Post{id: id}), do: render_post(conn, id)
 
-  def show(conn, %{"id" => id}) do
-    render_post(conn, id)
-  end
+  def show(conn, %{"id" => id}), do: render_post(conn, id)
 
   def render_post(conn, id) do
     post = Blog.get_post!(id)

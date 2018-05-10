@@ -36,7 +36,6 @@ class Form extends Component {
 
   render() {
     // if (this.props.loading) return <h2>Loading</h2>;
-    console.log(this.props.topics);
     return (
       <Paper zDepth={2} style={{ padding: 12 }}>
         <TextField
@@ -71,6 +70,7 @@ class Form extends Component {
           rows={5}
           onChange={this.handleChange}
           name="body"
+          floatingLabelText="Body"          
         />
         <RaisedButton
           primary

@@ -38,7 +38,7 @@ class BlogProvider extends Component {
   }
   
   loadUnsavedPosts() {
-    return getUnsavedPosts()
+    getUnsavedPosts()
       .then(posts => posts.map(post => ({...post, saved: post.synced})))
       .then(posts => {
         this.setState({
@@ -48,9 +48,16 @@ class BlogProvider extends Component {
       });
   }
 
-  createPost(obj) {
+  createPost = (obj) => {
     return createPost(obj)
-      .then(() => this.loadUnsavedPosts());
+      .then(() => getUnsavedPosts())
+      .then(posts => posts.map(post => ({...post, saved: post.synced})))
+      .then(posts => {
+        this.setState({
+          unsavedPosts: posts,
+          unsavedPostsLoading: false
+        });
+      });
   }
 
   loadTopics () {

@@ -8,6 +8,6 @@ const staticBuild = express.static(buildPath);
 
 app.use(staticBuild);
 
-app.listen(3000, () => {
-  console.log('Production server listening on 3000');
+app.listen(8080, () => {
+  console.log('Production server listening on 8080');
 });

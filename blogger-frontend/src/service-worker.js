@@ -1,13 +1,7 @@
-/* global importScripts workbox */
+/* global importScripts workbox Dexie*/
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js');
 importScripts('https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.3/dexie.min.js');
-
-if (workbox) {
-  console.log('Yay! Workbox is loaded! ');
-} else {
-  console.log("Boo! Workbox didn' load!");
-}
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
 
@@ -17,6 +11,16 @@ workbox.routing.registerRoute(
     cacheName: 'blog-cache'
   })
 );
+
+const db = new Dexie('unsynced_posts');
+// console.log(db);
+db.version(1).stores({
+  posts: '++id, inserted_at, updated_at, title, author, topic_id, body, synced'
+});
+
+setInterval(() => {
+  db.posts.toArray().then(console.log).catch(console.error);
+}, 5000);
 
 // workbox.routing.registerRoute(
 //   // Cache CSS files

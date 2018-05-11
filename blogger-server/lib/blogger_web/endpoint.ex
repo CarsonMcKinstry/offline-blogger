@@ -19,7 +19,9 @@ defmodule BloggerWeb.Endpoint do
 
   plug Plug.Logger
 
-  plug Corsica, origins: "*"
+  # plug Corsica, origins: "http://localhost:3000"
+
+  plug CORSPlug
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],

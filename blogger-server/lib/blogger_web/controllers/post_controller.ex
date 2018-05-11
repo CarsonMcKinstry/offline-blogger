@@ -14,7 +14,7 @@ defmodule BloggerWeb.PostController do
   def create(conn, %{"post" => post_params}) do
     with {:ok, %Post{} = post} <- Blog.create_post(post_params) do
       conn
-      |> put_status(:created)
+      # |> put_status(:created)
       |> put_resp_header("location", post_path(conn, :show, post))
       |> show(post)
     end

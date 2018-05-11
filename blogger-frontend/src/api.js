@@ -3,6 +3,7 @@ const logI = i => {
   console.log(i);
   return i;
 };
+
 const base = axios.create({
   baseURL: 'http://localhost:4000/api'
 });

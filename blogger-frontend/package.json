@@ -55,7 +55,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "start:prod": "node index.js"
+    "start:prod": "nodemon index.js"
   },
   "jest": {
     "collectCoverageFrom": [

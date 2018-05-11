@@ -34,6 +34,25 @@ class Form extends Component {
     });
   };
 
+  handleTest () {
+    fetch('http://localhost:4000/api/posts', {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      // mode: 'no-cors',
+      body: JSON.stringify({
+        post: {
+          author: "asdflkjasdf",
+          body: "asdflk;ajsdfl;kjasd",
+          topic_id: 2,
+          title: "asdflkjasd;flkjasdf;ljasdf;lk"
+        }
+      })
+    }).then(res => res.json())
+      .then(console.log);
+  }
+
   render() {
     // if (this.props.loading) return <h2>Loading</h2>;
     return (
@@ -77,6 +96,12 @@ class Form extends Component {
           label="Submit"
           fullWidth={true}
           onClick={this.handleSubmit}
+        />
+        <RaisedButton
+          secondary
+          label="test"
+          fullWidth
+          onClick={ this.handleTest }
         />
       </Paper>
     );

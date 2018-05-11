@@ -16,6 +16,7 @@ defmodule BloggerWeb.PostView do
       author: post.author,
       body: post.body,
       title: post.title,
+      index_db_id: post.index_db_id,
       topic: topic
     }
   end

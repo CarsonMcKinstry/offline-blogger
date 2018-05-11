@@ -9,22 +9,21 @@ class App extends Component {
 
   render() {
     return (
-      <h1>Working on PostSync</h1>
-      // <BlogConsumer>
-      //   {
-      //     blog => (
-      //       <Fragment>
-      //         <Form loading={blog.topicsLoading} topics={blog.topics} createPost={blog.createPost}/>
-      //         <Posts 
-      //           savedPostsloading={blog.savedPostsLoading} 
-      //           unsavedPostsPoading={blog.unsavedPostsLoading}
-      //           savedPosts={blog.savedPosts} 
-      //           unsavedPosts={blog.unsavedPosts}
-      //         />
-      //       </Fragment>
-      //     )
-      //   }
-      // </BlogConsumer>
+      <BlogConsumer>
+        {
+          blog => (
+            <Fragment>
+              <Form loading={blog.topicsLoading} topics={blog.topics} createPost={blog.createPost}/>
+              <Posts 
+                savedPostsloading={blog.savedPostsLoading} 
+                unsavedPostsPoading={blog.unsavedPostsLoading}
+                savedPosts={blog.savedPosts} 
+                unsavedPosts={blog.unsavedPosts}
+              />
+            </Fragment>
+          )
+        }
+      </BlogConsumer>
     );
   }
 }

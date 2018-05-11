@@ -7,6 +7,7 @@ defmodule Blogger.Blog.Post do
     field :author, :string
     field :title, :string
     field :body, :string
+    field :index_db_id, :integer
     belongs_to :topic, Topic
     timestamps()
   end
@@ -14,7 +15,7 @@ defmodule Blogger.Blog.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:author, :title, :body, :topic_id])
+    |> cast(attrs, [:author, :title, :body, :topic_id, :index_db_id])
     |> validate_required([])
   end
 end

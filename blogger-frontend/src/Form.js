@@ -46,7 +46,8 @@ class Form extends Component {
           author: "asdflkjasdf",
           body: "asdflk;ajsdfl;kjasd",
           topic_id: 2,
-          title: "asdflkjasd;flkjasdf;ljasdf;lk"
+          title: "asdflkjasd;flkjasdf;ljasdf;lk",
+
         }
       })
     }).then(res => res.json())

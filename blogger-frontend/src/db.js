@@ -1,4 +1,5 @@
 import Dexie from 'dexie';
+import faker from 'faker';
 import moment from 'moment';
 const logI = i => {
   console.log(i);
@@ -40,3 +41,26 @@ export const getUnsavedPosts = () => {
     // .then(logI);
   // .catch(console.log)
 };
+
+function createPosts() {
+  const posts = [];
+  for (let i = 0; i < 10; i++) {
+    posts.push({
+      topic_id: faker.random.number() % 8 + 1,
+      title: faker.lorem.sentence(4),
+      author: faker.name.findName(),
+      body: faker.lorem.paragraph()
+    })
+  }
+
+  Promise.all(
+    posts.map(post => {
+      return db.posts.put(post);
+    })
+  ).then(posts => {
+    console.log(posts);
+    console.log('mass insert finished');
+  })
+}
+
+createPosts();

@@ -29,7 +29,7 @@ export const createPost = ({
       author: author,
       topic_id: topic
     })
-    .then(logI);
+    // .then(logI);
   // .catch(console.log);
 };
 
@@ -37,6 +37,6 @@ export const getUnsavedPosts = () => {
   return db.posts
     .filter(post => !post.synced)
     .toArray()
-    .then(logI);
+    // .then(logI);
   // .catch(console.log)
 };

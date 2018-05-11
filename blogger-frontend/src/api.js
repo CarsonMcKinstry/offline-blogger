@@ -12,7 +12,7 @@ export const getTopics = () => {
   return base
     .get('/topics')
     .then(res => res.data.data)
-    .then(logI);
+    // .then(logI);
 };
 
 export const getSavedPosts = () => {

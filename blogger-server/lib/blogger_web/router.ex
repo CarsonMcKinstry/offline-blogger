@@ -10,5 +10,6 @@ defmodule BloggerWeb.Router do
     
     resources "/posts", PostController
     get "/topics", TopicController, :index
+    get "/health", HealthController, :check
   end
 end

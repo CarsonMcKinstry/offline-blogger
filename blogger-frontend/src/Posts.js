@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CircularProgress from 'material-ui/CircularProgress';
 import Post from './Post';
 
-const renderPost = ({title, author, topic, saved}) => <Post title={title} author={author} topic={topic} saved={saved}/>;
+const renderPost = ({id, title, author, topic, saved}) => <Post key={id} title={title} author={author} topic={topic} saved={saved}/>;
 
 
 class Posts extends Component {

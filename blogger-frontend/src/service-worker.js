@@ -1,4 +1,4 @@
-/* global importScripts workbox Dexie Axios*/
+/* global importScripts workbox Dexie self*/
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js');
 importScripts('https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.3/dexie.min.js');
@@ -101,6 +101,26 @@ class PostSync {
   }
 }
 
-const syncer = new PostSync('unsynced_posts', 1, 'posts', '++id, inserted_at, updated_at, title, author, topic_id, body, synced', 60000);
+// const syncer = new PostSync('unsynced_posts', 1, 'posts', '++id, inserted_at, updated_at, title, author, topic_id, body, synced', 60000);
 
-syncer.startSync();
+// syncer.startSync();
+
+// const bgSyncPlugin = new workbox.backgroundSync.Plugin('unsynced-posts', {
+//   maxRetentionTime: 24 * 60
+// });
+
+// workbox.routing.registerRoute(
+//   'http://localhost:4000/api/posts',
+//   workbox.strategies.networkOnly({
+//     plugins: [bgSyncPlugin]
+//   }),
+//   'POST'
+// );
+
+self.addEventListener('push', function(e) {
+  console.log(e);
+});
+
+self.addEventListener('sync', function(e) {
+  console.log(e);
+})
